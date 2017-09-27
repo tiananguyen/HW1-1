@@ -4,6 +4,10 @@
 Write a statement that both adds 1 to deansList and prints studentName to standard out if gpa exceeds 3.5.*/
 
 main() {
+  int gpa;
+  int deansList;
+  type studentName;
+  
   if(gpa > 3.5) {
     deansList++;
     cout<<studentName;

@@ -5,9 +5,13 @@ polygonCount have all been declared and initialized. Write a statement that adds
 these count variables (isoCount, triangleCount, and polygonCount) if isIsosceles is true.*/
 
 main() {
+  int isoCount;
+  int triangleCount;
+  int polygonCount;
+
   if(isIsosceles==1) {
 	   isoCount++;
 	   triangleCount++;
-	    polygonCount++;
+	   polygonCount++;
   }
 }
