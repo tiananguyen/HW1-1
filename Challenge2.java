@@ -1,4 +1,4 @@
-/* Can you determinate if a string has all unique character? */
+// Can you determinate if a string has all unique character? 
 public class Challenge2 {
   public static void main(String[] args) {
     for(char i=0; i < str.length(); i++) {
