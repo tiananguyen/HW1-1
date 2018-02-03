@@ -39,7 +39,7 @@ private:
 };
 
 int main() {
-  Money yourAmount, myAmount(10,9);
+  Money yourAmount, myAmount(14,9);
   int x;
   cout<<"Enter the amount of money: "<<endl;
   cin>>yourAmount;
@@ -178,7 +178,7 @@ bool operator >=(const Money& amount1, const Money& amount2){
  * of money represented by the calling object
  */
 const Money Money::percent(int percentFigure) const{
-  double amountDollarsNew, amountCentsNew, percentNew;
+  double amountDollarsNew, amountCentsNew, percentNew, carry;
   percentNew = .01*percentFigure;
   if(getDollars()<10){
     amountCentsNew = getDollars()*percentNew;
@@ -186,6 +186,10 @@ const Money Money::percent(int percentFigure) const{
   } else {
     amountDollarsNew = getDollars()*percentNew;
     amountCentsNew = getCents()*percentNew;
+  }
+  if(getDollars()%10 != 0){
+    carry = (getDollars()%10)*10;
+    amountCentsNew = (getCents()*percentNew)+carry;
   }
 
   return Money(amountDollarsNew, amountCentsNew);

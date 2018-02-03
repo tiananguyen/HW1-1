@@ -92,8 +92,8 @@ public:
                 data_[i] = (data_[i]+b[i]+carryOver)%10;
                 carryOver = 1;
             } else {
-            data_[i] = data_[i] + b[i]+carryOver;
-            carryOver=0;
+                data_[i] = data_[i] + b[i]+carryOver;
+                carryOver=0;
             }
         }
     }
