@@ -21,7 +21,7 @@ int main() {
     cout<<"Enter the student grade: "<<endl;
     cin>>gra;
     records.push_back(StudentInfo());
-    records[i].name = str;
+    records[i].name =str;
     records[i].grade=gra;
     i++;
     cout<<"Do you want to do it again?"<<endl;
@@ -60,7 +60,7 @@ int main() {
     // Find min and max
     if(iter->grade>max){
       max=iter->grade;
-    }
+  =  }
     if(iter->grade<min){
       min=iter->grade;
     }
