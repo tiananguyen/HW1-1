@@ -1,25 +1,18 @@
 /* PROBLEM
- * Write a function that takes a single argument (a list of names)
- *  and outputs the English-formatted
- * conjunction of those names.
- * EXAMPLE : given these names: ['Alice', 'Bob', 'Carlos', 'Diana']
- * The output would be: "Alice, Bob, Carlos and Diana"
- *
- * This type of function is useful when building user interfaces that show the
- * list of people in a conversation, for example.
- * Whether or not the output follows the Oxford comma rule is up to the author.
+ * Same as formatnames-list.cpp, but this time the function should return a
+ * the formatted names as a string.
  */
 
 #include<iostream>
 #include<list>
 using namespace std;
 
-void formatNames(list<string> names, int amountNames);
+string formatNames(list<string> names, int amountNames);
 
 int main() {
-  int amountNames;
-  int count = 0;
-  string initname ="";
+  int amountNames, count = 0;
+  string initname = "";
+  string finalName;
   list<string> names;
 
   // Ask user for amount of names
@@ -42,20 +35,22 @@ int main() {
   }
 
   // Function to format names
-  cout<<"Here are the names formatted: "<<endl;
-  formatNames(names, amountNames);
+  finalName = formatNames(names, amountNames);
+  cout<<"Here are the names formatted: "<<finalName<<endl;
 
   return 0;
 }
 
-void formatNames(list<string> names, int amountNames) {
+string formatNames(list<string> names, int amountNames) {
+  string formattedNames = "";
   // EDGE CASE #1 : No Names
   if(amountNames == 0){
-    cout<<"There are no names"<<endl;
+    return "There are no names";
   // EDGE CASE #2 : 1 Name
   } else if (amountNames == 1) {
     for (list<string>::iterator i = names.begin(); i != names.end(); i++) {
-       cout << *i <<endl;
+       formattedNames = *i;
+       return formattedNames;
      }
   // GENERAL CASE
   } else {
@@ -63,12 +58,14 @@ void formatNames(list<string> names, int amountNames) {
     for (list<string>::iterator i = names.begin(); i != names.end(); i++) {
       count ++;
       if(count == amountNames-1) {
-        cout<< *i << ", and ";
+        formattedNames += *i + ", and ";
       } else if (count == amountNames) {
-        cout<< *i <<endl;
+        formattedNames += *i;
       } else {
-       cout << *i << ", ";
+       formattedNames += *i + ", ";
      }
     }
+    return formattedNames;
   }
+  return "";
 }
